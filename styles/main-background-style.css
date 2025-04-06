@@ -159,3 +159,29 @@ svg {
     transform: rotate(360deg);
   }
 }
+
+/* for mobile view */
+@media (max-width: 600px) {
+  .blob-cont {
+    height: 100vh;
+  }
+
+  .corner-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .bottom-left {
+    left: -90px;
+    bottom: -90px;
+  }
+
+  .bottom-right {
+    right: -90px;
+    bottom: -90px;
+  }
+
+  .corner-image .material-you-img.scrolled {
+    opacity: 0.3;
+  }
+}

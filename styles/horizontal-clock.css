@@ -122,3 +122,50 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* for mobile view */
+
+/* Mobile responsiveness for the horizontal clock */
+@media (max-width: 600px) {
+  .time-slider-container {
+    padding: 5px 0;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  .time-slider {
+    width: 95%;
+    height: 50px;
+  }
+
+  .hour-markings span {
+    height: 12px;
+  }
+
+  .hour-markings span:nth-child(3n + 1) {
+    height: 25px;
+  }
+
+  .hour-markings .major {
+    height: 18px;
+  }
+
+  .slider-indicator {
+    width: 14px;
+    height: 30px;
+  }
+
+  .slider-indicator::before {
+    width: 14px;
+    height: 14px;
+  }
+
+  .slider-indicator::after {
+    height: 10px;
+  }
+
+  .mode-icon {
+    width: 30px;
+    height: 30px;
+  }
+}

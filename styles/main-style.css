@@ -131,6 +131,7 @@ header {
   max-width: 920px; /* Set a max-width for better control */
   width: 100%; /* Ensure it takes the full width within the max-width limit */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 0 auto; /* specifically for mobile view, @media queries */
 }
 
 .navbar ul {
@@ -151,9 +152,12 @@ header {
   text-decoration: none;
   color: var(--text-color);
   font-weight: bold;
-  padding: 8px 20px; /* Add padding for spacing */
+  /* padding: 8px 20px; /* Add padding for spacing */
   border-radius: 15px; /* Rounded corners */
   transition: box-shadow 0.3s ease; /* Smooth transition for box-shadow */
+
+  font-size: clamp(12px, 2vw, 16px); /* Shrinks as screen gets smaller */
+  padding: 8px clamp(10px, 2vw, 20px); /* Shrinks horizontal padding too */
 }
 
 .navbar.scrolled {
@@ -388,3 +392,113 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* for mobile view */
+@media (max-width: 768px) {
+  .my-name {
+    font-size: 48px;
+    padding: 20px;
+    height: auto;
+  }
+
+  .container-div,
+  .glass {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .content-div-1,
+  .content-div-2,
+  .content-div-3,
+  .content-div-4,
+  .content-div-5 {
+    margin: 20px;
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .content-heading {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .content-div-sub-5 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-card-5 {
+    width: 90%;
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  .content-heading-5 {
+    font-size: 22px;
+    height: auto;
+  }
+
+  .link-buttons {
+    padding: 10px;
+    font-size: 16px;
+    font-size: 18px; /* slightly larger for better tap */
+  }
+
+  .content-flex-3 {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .content-flex-3 p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0px 0px;
+    max-width: 80%;
+  }
+
+  .navbar.scrolled {
+    padding: 0px 0px;
+    max-width: 80%;
+  }
+
+  .navbar ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: calc(2vw) calc(2vw);
+    padding-bottom: 10px;
+
+    scroll-snap-type: x mandatory;
+  }
+
+  .navbar li {
+    margin: 0 calc(1.5vw);
+    flex-shrink: 1;
+    min-width: 0; /* Let it go as small as needed */
+
+    scroll-snap-align: center;
+  }
+
+  .navbar a {
+    font-size: calc(2.5vw); /* Shrinks with viewport */
+    padding: calc(1.5vw) calc(2vw); /* Shrinks padding too */
+  }
+
+  .navbar ul li.current-page a {
+    font-size: calc(2.5vw);
+    padding: calc(0.5vw) min(3vw, 16px);
+    white-space: nowrap;
+  }
+}
+
+.cursor {
+  display: none !important;
+}
+
+/* mobile view css ends */

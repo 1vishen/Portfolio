@@ -63,26 +63,42 @@ document.addEventListener("DOMContentLoaded", function () {
 // function to control hover animation on hour markings
 document.addEventListener("DOMContentLoaded", function () {
   const hourMarkings = document.querySelectorAll(".hour-markings span");
+  const timeSlider = document.querySelector(".time-slider");
 
   function handleMouseMove(event) {
     const rect = this.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left; // Mouse position relative to the container
+    const mouseX = event.clientX - rect.left;
 
-    hourMarkings.forEach((mark, index) => {
+    hourMarkings.forEach((mark) => {
       const markRect = mark.getBoundingClientRect();
-      const distance = Math.abs(mouseX - (markRect.left + markRect.width / 2)); // Distance from the mouse to the center of the marking
-
-      const scale = Math.max(2.5 - distance / 100, 1); // Scale effect, closer markings are larger
+      const distance = Math.abs(mouseX - (markRect.left + markRect.width / 2));
+      const scale = Math.max(2.5 - distance / 100, 1);
       mark.style.transform = `scaleY(${scale})`;
     });
   }
 
   function resetScale() {
     hourMarkings.forEach((mark) => {
-      mark.style.transform = "scaleY(1)"; // Reset the scale to normal when the mouse leaves
+      mark.style.transform = "scaleY(1)";
     });
   }
 
-  document.querySelector(".time-slider").addEventListener("mousemove", handleMouseMove);
-  document.querySelector(".time-slider").addEventListener("mouseleave", resetScale);
+  function toggleHoverEffect() {
+    if (window.innerWidth >= 768) {
+      // Enable hover effect
+      timeSlider.addEventListener("mousemove", handleMouseMove);
+      timeSlider.addEventListener("mouseleave", resetScale);
+    } else {
+      // Disable hover effect
+      timeSlider.removeEventListener("mousemove", handleMouseMove);
+      timeSlider.removeEventListener("mouseleave", resetScale);
+      resetScale(); // Also reset any scale if already applied
+    }
+  }
+
+  // Initial check on load
+  toggleHoverEffect();
+
+  // Re-check on window resize
+  window.addEventListener("resize", toggleHoverEffect);
 });

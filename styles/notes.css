@@ -26,11 +26,3 @@
 .note-content {
   text-align: left;
 }
-
-li {
-  background-color: var(--content-div-color);
-  transition: transform 1.5s ease, background-color 1.5s ease, box-shadow 1.5s ease, width 1.5s ease;
-  color: var(--text-color);
-  box-sizing: border-box;
-  margin: auto 20px;
-}
