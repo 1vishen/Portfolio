@@ -340,8 +340,9 @@ header {
   height: 50px;
   border-radius: 50%;
   background: var(--cursor-hover-bg);
-  transition: 0.1s;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   transform: translate(-50%, -50%);
+  transform-origin: center center; /* so that it scales from center not top left which is default */
   pointer-events: none;
   mix-blend-mode: difference;
   z-index: 1000;
@@ -350,7 +351,9 @@ header {
 /* cursor hover effect - enlarge */
 /* add hover-me to any other div where we to make cursor bigger when hovered over */
 .cursor-hover {
-  transform: scale(4.5);
+  transform: translate(-50%, -50%) scale(2.5); /* Keep translate in both states */
+  background-color: #000000; /* change to your desired hover color, black or white makes it disappear on the bar above horizontal clock which is a nice resultant effetc i think */
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 /* svg loading animation */
@@ -497,8 +500,10 @@ header {
   }
 }
 
-.cursor {
-  display: none !important;
+@media (max-width: 768px) {
+  .cursor {
+    display: none !important;
+  }
 }
 
 /* mobile view css ends */
