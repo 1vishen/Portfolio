@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // svg loading animation
 document.addEventListener("DOMContentLoaded", function () {
   const loader = document.getElementById("loader");
-  const content = document.getElementById("container");
+  const content = document.querySelector(".container");
   const minLoadingTime = 400; // Minimum time in milliseconds
 
   const revealContent = () => {

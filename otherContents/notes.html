@@ -39,7 +39,48 @@
     </header>
 
     <!--main content-->
+    <!--second note-->
+    <div class="note-card">
+      <h1>The Horizontal Clock (& Dark mode toggle!)</h1>
+      <br /><br />
+      <div class="note-content">
+        One of the standout features on this site is the horizontal clock you’ve probably noticed ticking away near the bottom. I wanted something
+        more than just a plain, circular clock — something minimal, modern, and interactive. On top of that, I added a twist: clicking the moving
+        indicator instantly toggles between light and dark mode, making it both functional and fun.
 
+        <h3>Why a Horizontal Clock?</h3>
+        Most clocks stick to the classic round format. I wanted a fresh take, one that stretched across the page like a timeline, showing the
+        progression of the day in a single glance. It’s part functional timepiece, part ambient visual, and now also a quick theme switcher.
+
+        <h3>The Look</h3>
+        The design uses <b>daytime</b> and <b>nighttime</b> bars, color-coded with CSS variables so they’re easy to tweak. Hover effects subtly expand
+        the bars, giving them a dynamic feel without being distracting. The moving indicator, paired with a sun/moon icon, shows the current time’s
+        position while also acting as a toggle button for dark mode.
+
+        <h3>The Code</h3>
+        The implementation is clean and responsive:
+        <ul>
+          <li><b>HTML:</b> A flexbox-based row of spans representing each hourly mark, plus an absolutely positioned indicator element.</li>
+          <li>
+            <b>CSS:</b> Uses flexbox for even spacing, transitions for smooth movement, and CSS variables to instantly change colors for light/dark
+            themes.
+          </li>
+          <li>
+            <b>JS:</b> Calculates the indicator’s position based on the current time, updates it in real-time, and toggles the theme when the
+            indicator is clicked.
+          </li>
+        </ul>
+
+        <h3>What I Learned</h3>
+        This project taught me how small UI elements can change the personality of a site. It’s not just about telling the time — it’s about giving
+        the page rhythm.
+
+        <br /><br />
+        I’m excited to keep refining it, maybe even adding weather-based sliders in the future.
+      </div>
+    </div>
+
+    <!--first note-->
     <div class="note-card">
       <h1>Inspirations</h1>
       <br /><br />
@@ -103,6 +144,7 @@
         functional. Can’t wait to see where this project goes next!<br /><br />
       </div>
     </div>
+
     <!--Horizontal clock-->
     <div class="time-slider-container">
       <div class="time-slider">
