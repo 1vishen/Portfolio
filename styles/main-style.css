@@ -222,6 +222,7 @@ header {
   z-index: 10;
   overflow: hidden; /* Hide overflow */
   text-overflow: ellipsis; /* Show "..." for overflowed text */
+  text-align: justify; /* Make text justified */
 }
 
 .content-div-2,
